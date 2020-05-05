@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}GR Shop{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <style>
+
+        body{
+            background-color: #F8F8FF;
+        }
+
+        h1{
+            display:flex; 
+            justify-content:center; 
+            font-family: Montserrat;
+        }
+
+        a{
+            text-decoration:none;
+            transition: transform 0.3s;
+            transform: translate3d(0, -1px, 0) ;
+            /* box-shadow: 0px 15px 35px black, 0 5px 15px grey; */
+        }
+
+        a:hover{
+            transform: translate3d(0, -10px, 0);
+        }
+
+        footer{
+            display:flex;
+            flex-direction: column;
+            justify-content:center;
+            align-items:center;
+            background-color: rgb(107,117,126); 
+        }
+    </style>
+    <body> 
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('produit')}}" style="font-size:20px; color: white; font-family: Montserrat" onmouseover="this.style.color='darkgrey';" onmouseout="this.style.color='white';"> 
+                                {{'produit.name' |trans}} 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path('contenu_index')}}" style="font-size:20px; color: white; font-family: Montserrat" onmouseover="this.style.color='darkgrey';" onmouseout="this.style.color='white';"> 
+                                {{'pan.panier' |trans}} 
+                            </a>
+                        </li> 
+                    <ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav" style="display:flex; justify-content: flex-end; ">
+                    <ul class="navbar-nav">
+                        {% if app.user is not null %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:20px; color: white; font-family: Montserrat" onmouseover="this.style.color='darkgrey';" onmouseout="this.style.color='white';">
+                                    {{'compte.profil'|trans}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left:-80px;">
+                                {% if is_granted('ROLE_ADMIN') %} {#  permet de faire afficher accueil et liste des utilisateurs selon le role #}
+                                        <a class="dropdown-item" href="{{path('admin') }}" style="font-size:20px; color: black; font-family: Montserrat" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';"> 
+                                            {{'compte.accueil'|trans}}
+                                        </a>
+                                        <a class="dropdown-item" href="{{path('users') }}" style="font-size:20px; color: black; font-family: Montserrat" onmouseover="this.style.color='blue';" onmouseout="this.style.color='black';"> 
+                                            {{'compte.list'|trans}}
+                                        </a>        
+                                {% endif %}
+                                    {# <a class="dropdown-item" href="{{ path('profil') }}" style="font-size:20px; color: black; font-family: Montserrat" onmouseover="this.style.color='grey';" onmouseout="this.style.color='black';">
+                                        Modifier
+                                    </a> #}
+                                    <a class="dropdown-item" href="{{ path('user_index') }}" style="font-size:20px; color: black; font-family: Montserrat" onmouseover="this.style.color='grey';" onmouseout="this.style.color='black';">
+                                        {{'compte.mine'|trans}}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ path('app_logout') }}" style="font-size:20px; color: black; font-family: Montserrat" onmouseover="this.style.color='grey';" onmouseout="this.style.color='black';">
+                                        {{'compte.logout'|trans}}
+                                    </a>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_login') }}" style="font-size:20px; color: white; font-family: Montserrat" onmouseover="this.style.color='darkgrey';" onmouseout="this.style.color='white';">
+                                    {{'compte.login'|trans}}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_register') }}" style="font-size:20px; color: white; font-family: Montserrat" onmouseover="this.style.color='darkgrey';" onmouseout="this.style.color='white';">
+                                    {{'compte.signin'|trans}}
+                                </a>
+                            <li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+        
+
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <p class="alert alert-{{type}}">{{message}}</p>
+            {% endfor %}
+        {% endfor %}
+
+        {% block body %}
+            
+        {% endblock %}
+        </div>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

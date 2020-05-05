@@ -1,0 +1,10 @@
+{# Fichier permettant de supprimer un produit #}
+<form method="post" action="{{ path('produit_delete', {'id': produit.id}) }}">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+    <button class="btn" style="background-color:red ; border-radius:5px; height: 38px;" onmouseover="this.style.background='brown';this.style.color='white';" onmouseout="this.style.background='red';this.style.color='white';">
+        <a style="color:white; text-decoration:none;">    
+            {{ 'produit.supp'|trans }}
+        </a>
+    </button>
+</form>

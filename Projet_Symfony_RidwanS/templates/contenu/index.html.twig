@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+
+{% block body %}
+    <br/>
+    <h1>{{ 'pan.panier'|trans }}</h1>
+
+    <br/>
+    <br/>
+
+    {% if app.user is not null %}
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'pan.nom'|trans }}</th>
+                    <th>{{ 'pan.qte'|trans }}</th>
+                    <th>{{ 'pan.prix'|trans }}</th>
+                    <th>{{ 'pan.montant2'|trans }}</th>
+                    <th>{{ 'pan.action'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for contenu in contenus %}
+                <tr>
+                    <td>{{ contenu.produit.nom }}</td>
+                    <td>{{ contenu.qte }}</td>
+                    <td>{{ contenu.produit.prix }}€</td>
+                    <td>{{ contenu.produit.prix * contenu.qte }}€</td>
+                    <td>
+                        {# <a href="{{ path('contenu_show', {'id': contenu.id}) }}">show</a>
+                        <a href="{{ path('contenu_edit', {'id': contenu.id}) }}">edit</a> #}
+                        <button style="background-color:red ; border-radius:5px; height: 38px;" onmouseover="this.style.background='brown';this.style.color='white';" onmouseout="this.style.background='red';this.style.color='white';">
+							<a href="{{ path('delete_contenu', {'id': contenu.id}) }}" style="color:white; text-decoration:none;">
+		    					{{'produit.delete' |trans}}
+							</a>
+						</button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">{{ 'pan.empty'|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <br/>
+        <div style="background-color: darkgrey; height: 3px;"></div>
+        <br/>
+
+        <h2>{{ 'pan.total'|trans }}</h2>
+        
+        {% set total_panier = 0 %} 
+
+            {% for contenu in contenus  %}
+                
+                {% set total_panier = total_panier + (contenu.produit.prix * contenu.qte) %}
+            
+            {% endfor %}
+
+        <p style="font-size:20px;"> {{ 'pan.texte1'|trans }}  <span style="font-weight:bold; font-size: 25px;" >{{ total_panier }}€</span>.</p>
+
+
+
+        <a class="btn btn-primary" href="{{ path('achete_contenu') }}">{{ 'pan.acheter'|trans }}</a>
+    {% else %}
+        
+		<p style="font-size:20px; font-family: Montserrat">{{'pan.rien'|trans}}</p>
+        <br/>
+        <div style="background-color: darkgrey; height: 3px;"></div>
+        <br/>
+    {% endif %}
+{% endblock %}

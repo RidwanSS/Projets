@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+{% block body %}
+    <br/>
+    <h1>
+        {{ 'admin.list'|trans }}
+    </h1>
+    {% for user in users %}
+        {% if user == app.user %}
+            <br/>
+            <br/>
+            <p>{{ 'admin.texte2'|trans }} <strong>{{user.email}}</strong> {{ 'admin.texte21'|trans }} <strong>{{user.roles|join(', ') }}</strong></p>
+        {% endif %}
+    {% endfor %}
+
+
+    {% if users is not empty %}
+        <br/>
+        <table border="0" style="border-color: rgb(222,226,231)" class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'admin.nom'|trans }}</th>
+                    <th>{{ 'admin.prenom'|trans }}</th>
+                    <th>{{ 'admin.email'|trans }}</th>
+                    <th>{{ 'admin.role'|trans }}</th>
+                    <th>{{ 'admin.change'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{user.nom}}</td>
+                        <td>{{user.prenom}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.roles|join(', ') }}</td>
+                        <td>
+                            <button style="background-color:#eee40e ; border-radius:5px; height: 38px;" onmouseover="this.style.background='#d4cb0b';this.style.color='white';" onmouseout="this.style.background='#eee40e';this.style.color='white';">
+                                <a href="{{ path('editRole', {'id': user.id}) }}" style="color:black; text-decoration:none;" >
+                                    User / Admin
+                                </a>
+                            </button>
+                            <br/>
+                            <button style="background-color:#36e70d ; border-radius:5px; height: 38px;" onmouseover="this.style.background='#2cc10a';this.style.color='white';" onmouseout="this.style.background='#36e70d';this.style.color='white';">
+                                <a href="{{ path('editroleadmin', {'id': user.id}) }}" style="color:black; text-decoration:none;">
+                                    Super_Admin / Admin
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

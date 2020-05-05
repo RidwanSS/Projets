@@ -1,0 +1,29 @@
+{# Fichier twig de la page d'inscription #}
+{# Cette page est générée automatiquement avec la commande "make:registration-form" #}
+{% extends 'base.html.twig' %}
+
+{% block title %}GR SHOP{% endblock %}
+
+{% block body %}
+    <br/>
+    <h1>
+        {{'compte.signin'|trans}}
+    </h1>
+    <br/>
+
+    {% if app.user is not null %}
+        <h5> {{'compte.already'|trans}} {{ app.user.username }} </h5>
+    {% endif %}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.nom) }}
+        {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button class="btn btn-lg btn-primary" type="submit" style="font-size: 18px">
+            {{'compte.signin'|trans}}
+        </button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

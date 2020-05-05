@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+{% block body %}
+<style>
+</style>
+    <br>
+    <h1>{{ 'admin.bienvenue'|trans }} {{ app.user.prenom }} ! ✅</h1> {# appelle le nom de l'admin connecté #}
+    <br/>
+    <p>{{ 'admin.texte1'|trans }}</p>
+    <ul>
+        <li><a href="{{path('users') }}">{{ 'admin.list'|trans }}</a></li>
+    </ul>
+{% endblock %}

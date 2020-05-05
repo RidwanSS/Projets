@@ -1,0 +1,113 @@
+produit:
+  titre: 'Liste des produits'
+  add: 'Ajouter un produit'
+  nom: 'Nom'
+  description: 'Description du produit'
+  quantite: "Quantité (en stock)"
+  prix: 'Prix'
+  voir: 'Voir'
+  edit: 'Modifier'
+  modif_produit: 'Modifier un produit'
+  retour_liste: 'Retour à la liste'
+  retour: 'Retour'
+  categorie: 'Catégorie'
+  action: 'Action'
+  stock: 'Quantité de produit en stock'
+  supp: 'Supprimer'
+  save: 'Sauvegarder'
+  image: "Photo du produit"
+  etat: "Etat"
+  add02: "Ajouté le"
+  a: 'à'
+  name: 'Produit'
+  quantite02: 'Quantité'
+  delete: 'Supprimer la ligne'
+  vide: "Il n'y aucun produit dans la liste"
+  creation: "Créer un nouveau produit"
+  there_is: "Il y a nb produit/produits"
+
+file:
+  error: "Le fichier n'a pas pu etre upload"
+
+Nom: "Nom"
+Description : "Description"
+Qte: "Quantité"
+Prix: "Prix"
+Categorie: "Catégorie"
+Photo: "Photo"
+Sauvegarder: "Sauvegarder"
+Qte01: 'Quantité'
+Save: 'Ajouter au panier'
+Produit: 'Produit'
+Plain password: 'Mot de passe'
+Agree terms: 'Conditions générales'
+Prenom: "Prénom"
+
+pan:
+  rien: "Il n'y a aucune produit dans le panier"
+  panier: 'Panier'
+  montant: 'Montant total du panier'
+  there_is: "Il y a nb produit(s) dans le panier"
+  add: 'Ajouter au panier'
+  nom: 'Nom du produit'
+  qte: 'Quantité'
+  prix: 'Prix'
+  montant2: 'Montant'
+  action: 'Action'
+  empty: 'Votre panier est vide'
+  total: 'Total TTC'
+  texte1: 'Le prix total est de '
+  acheter: 'Acheter le panier'
+
+compte:
+  id: "Entrer vos identifiants"
+  connecte: 'Vous êtes connecté en tant que'
+  mdp: 'Mot de passe'
+  login: 'Se connecter'
+  signin: "S'inscrire"
+  veuillez: 'Veuillez'
+  conditionadd: "pour ajouter l'article au panier"
+  or: 'ou vous'
+  profil: 'Profil'
+  logout: 'Déconnexion'
+  mine: 'Mon compte'
+  list: "Liste membres"
+  accueil: 'Accueil'
+  already: 'Vous êtes déjà connectés en tant que '
+
+flash:
+  addproduct: 'Produit ajouté !'
+  deleteproduct: 'Produit supprimé !'
+  impossibleproduct: "Impossible de supprimer le produit"
+  addpanier: 'Produit ajouté au panier !'
+  unknownprod: "Produit introuvable !"
+  impossiblerole: "Impossible de modifier le rôle"
+  edituser: "Rôle modifié en ['ROLE_USER'] !"
+  editadmin: "Rôle modifié en ['ROLE_ADMIN'] !"
+  editsuperadmin: "Rôle modifié en ['ROLE_SUPER_ADMIN'] !"
+  supppanier: "Article supprimé du panier !"
+  unknownpan: "Panier introuvable !"
+  buypan: "Panier acheté !"
+  create: 'Compte créé ! Bienvenue sur GR Shop'
+  edit: 'Compte modifié !'
+  deleteaccount: 'Compte supprimé !'
+
+admin:
+  bienvenue: 'Bienvenue'
+  texte1: 'Vous pouvez aller à :'
+  list: 'Listes des utlisateurs'
+  texte2: 'Vous êtes'
+  texte21: 'et vos roles sont : '
+  nom: 'Nom'
+  prenom: 'Prénom'
+  email: 'Email'
+  role: 'Rôle(s)'
+  change: 'Changer le rôle'
+
+user:
+  compte: 'Mon compte'
+  firstname: 'Prénom'
+  lastname: 'Nom'
+  edit: 'Modifier'
+  edit02: 'Modification du compte'
+  delete: 'Supprimer le compte'

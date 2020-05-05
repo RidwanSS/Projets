@@ -1,0 +1,156 @@
+/* Général */
+
+body {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+/*Sections*/
+
+.calculatrices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid silver;
+    width: 700px;
+    height: 500px;
+
+}
+
+/* Calculatrice 2 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    margin: 2px;
+    cursor: pointer;
+    background: #607d8b;
+    border: none;
+    color: white;
+}
+
+.textview {
+    width: 203px;
+    margin: 5px;
+    font-size: 25px;
+    padding: 5px;
+    border: 2px solid #607d8b;
+    color: #607d8b;
+}
+
+
+
+
+/*Carousel*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.carousel-container {
+    width: 500px;
+    height: 550px;
+    margin: auto;
+    border: 3px solid silver;
+    overflow: hidden;
+    position: relative;
+    background-color: silver;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 500px;
+}
+
+#prevBtn {
+    position: absolute;
+    top: 93.5%;
+    z-index: 10;
+    left: 5%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+#nextBtn {
+    position: absolute;
+    top: 93.5%;
+    z-index: 10;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/* Pierre, Feuille, Ciseaux */
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    color: #fff;
+    background-color: blue;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.resultat {
+    border: solid black 1px;
+    height: 100px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+
+
+/* Le juste prix */
+
+
+body {
+    height: 50%;
+    margin: 0;
+    width: 100%;
+}
+
+h1,p {
+    text-align: center;
+    margin: 0 auto;
+}

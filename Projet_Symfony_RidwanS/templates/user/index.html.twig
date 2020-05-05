@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+{% block body %}
+	<br/>
+	<h1>
+		{{ 'user.compte'|trans }}
+	</h1>
+	<br/>
+
+	{% for user in users %}
+		{% if user == app.user %}
+			<table style="border-color: rgb(222,226,231)" class="table">
+				<tbody>
+					<tr>
+						{# <td>{{ user.id }}</td> #}
+						<th>Email</th>
+						<td>{{ user.email }}</td>
+					</tr>
+
+					<tr>
+						<th>{{'user.lastname'|trans}}</th>
+						<td>{{ user.nom }}</td>
+					</tr>
+					<tr>
+						<th>{{'user.firstname'|trans}}</th>
+						<td>{{ user.prenom }}</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			{# <a href="{{ path('user_show', {'id': user.id}) }}">show</a> #}
+            <button style="background-color:rgb(0, 108, 255) ; border-radius:5px; height: 38px;" onmouseover="this.style.background='rgb(0, 93, 255)';this.style.color='white';" onmouseout="this.style.background='rgb(0, 108, 255)';this.style.color='white';">
+			    <a href="{{ path('user_edit', {'id': user.id}) }}" style="color:white; font-size: 18px; text-decoration:none;">
+                    {{'user.edit'|trans}}
+                </a>
+            </button>
+
+		{% endif %}
+	{% endfor %}
+
+{% endblock %}

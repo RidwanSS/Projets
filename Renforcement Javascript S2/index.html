@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/4a4219c6f2.js" crossorigin="anonymous"></script>
+    <!-- Récupération d'icône sur ce site -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Balise permettant de lier le fichier CSS à notre contenu HTML -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Javascript</title>
+</head>
+
+<body>
+
+    <h1>Renforcement Javascript cours 1 </h1>
+
+    <br>
+    <br>
+
+    <h2>Calculatrices</h2>
+
+    <br>
+    <br>
+
+    <!--Calculatrice 1-->
+
+    <section class="calculatrices">
+
+        <div class="calculatrice1">
+
+            <h3>Calculatrice 1</h3>
+
+            <br>
+
+            <p>
+                Premier nombre : <input type="text" id="PremierNb" name="PremierNb">
+            </p>
+            <p>
+                <!--radio est un bouton que l'on coche et retourne une seule possibilité-->
+                + <input type="radio" id="r1" name="r" />
+                - <input type="radio" id="r2" name="r" />
+                * <input type="radio" id="r3" name="r" />
+                / <input type="radio" id="r4" name="r" />
+            </p>
+            <p>
+                Second nombre: <input type="text" id="SecondNb" name="SecondNb">
+            </p>
+            <p>
+                <!-- Boutton permettant de nous retourner le résulat de calcul -->
+                <input type="submit" onclick="calculer()" id="valider" name="valider" value="Valider">
+            </p>
+            <!--Au click, on execute le JS avec la fonction calculer-->
+
+            <br>
+
+            <h3 id="result">Résultat</h3>
+            <div id="afficher"></div>
+            <br><br><br>
+
+        </div>
+
+
+
+
+
+
+
+        <!--Calculatrice 2-->
+
+
+        <div class="main">
+
+            <h3>Calculatrice 2</h3>
+
+            <br>
+            <!-- Formaulaire qui retourne le le calcul et le résultat -->
+            <form name="form">
+                <input class="textview" name="textview">
+            </form>
+
+            <table>
+                <!-- La balise "<table></table>" permet de créer un tableau -->
+                <tr>
+                    <!--Bloc de cellule et retour à ligne-->
+                    <td><input class="button" type="button" value="C" onclick="clean()"></td>
+                    <!--"button" = contrôlé via un gestionnaire d'event , "submit" = envoyer les données d'un formulaire-->
+                    <td><input class="button" type="button" value="<" onclick="back()"></td>
+                    <!--td = cellules-->
+                    <td><input class="button" type="button" value="/" onclick="insert('/')"></td>
+                    <td><input class="button" type="button" value="x" onclick="insert('*')"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="7" onclick="insert(7)"></td>
+                    <td><input class="button" type="button" value="8" onclick="insert(8)"></td>
+                    <td><input class="button" type="button" value="9" onclick="insert(9)"></td>
+                    <td><input class="button" type="button" value="-" onclick="insert('-')"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="4" onclick="insert(4)"></td>
+                    <td><input class="button" type="button" value="5" onclick="insert(5)"></td>
+                    <td><input class="button" type="button" value="6" onclick="insert(6)"></td>
+                    <td><input class="button" type="button" value="+" onclick="insert('+')"></td>
+                </tr>
+                <tr>
+                    <td><input class="button" type="button" value="1" onclick="insert(1)"></td>
+                    <td><input class="button" type="button" value="2" onclick="insert(2)"></td>
+                    <td><input class="button" type="button" value="3" onclick="insert(3)"></td>
+                    <td rowspan="5"><input class="button" style="height: 106px;" type="button" value="="
+                            onclick="equal()">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="button" style="width: 106px;" type="button" value="0"
+                            onclick="insert(0)">
+                    </td>
+                    <td><input class="button" type="button" value="." onclick="insert('.')"></td>
+                </tr>
+            </table>
+        </div>
+
+    </section>
+
+
+    <br>
+    <br>
+
+
+
+
+    <!-- Carousel -->
+    <section class="carousel">
+
+        <h2>Carousel</h2>
+
+        <br>
+
+        <div class="carousel-container">
+
+            <!-- Importation d'icône vie Awesome Font -->
+            <i class="fa fa-arrow-left" aria-hidden="true" id="prevBtn"></i>
+            <i class="fa fa-arrow-right" aria-hidden="true" id="nextBtn"></i>
+
+            <div class="carousel-slide">
+                <!-- Images du carousel -->
+                <img src="img/photo_profil_5.png" alt="Une petite image cool" id="lastClone">
+                <img src="img/photo_profil_1.png" alt="Une petite image cool">
+                <img src="img/photo_profil_2.png" alt="Une petite image cool">
+                <img src="img/photo_profil_3.png" alt="Une petite image cool">
+                <img src="img/photo_profil_4.png" alt="Une petite image cool">
+                <img src="img/photo_profil_5.png" alt="Une petite image cool">
+                <img src="img/photo_profil_1.png" alt="Une petite image cool" id="firstClone">
+            </div>
+        </div>
+
+    </section>
+
+
+    <br>
+    <br>
+
+
+    <!-- Pierre, Feuille, Ciseau -->
+    <section>
+
+        <h2>Pierre Feuille ou Ciseaux ?</h2>
+
+        <!-- Différent boutton pour le joueur et non le robot  -->
+        <div class="box">
+            <button>Pierre</button>
+            <button>Feuilles</button>
+            <button>Ciseaux</button>
+        </div>
+         
+        <!-- Espace d'affichage du résulat du joueur, du robot et donc de la victoire ou défaite du joueur -->
+        <div class="resultat">
+
+        </div>
+
+
+    </section>
+
+
+    <br/>
+    <br/>
+    <br/>
+
+
+    <!-- Le juste prix -->
+    <section>
+        <h2>Le juste prix</h2>
+        <div>
+            <p>Activez la console de votre navigateur pour visualiser le jeu</p>
+        </div>
+    </section>
+
+
+    <br/>
+    <br/>
+    <br/>
+
+
+
+
+    <script src='script.js'></script>
+</body>
+
+

@@ -1,0 +1,11 @@
+{# Fichier de suppression d'un utlisateur #}
+{# Généré automatiquement avec un "make:crud" #}
+<form method="post" action="{{ path('user_delete', {'id': user.id}) }}">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+    <button class="btn" style="background-color:red ; border-radius:5px; height: 38px;" onmouseover="this.style.background='brown';this.style.color='white';" onmouseout="this.style.background='red';this.style.color='white';">
+        <a style="color:white; text-decoration:none;">    
+            {{'user.delete'|trans}}
+        </a>
+    </button>
+</form>

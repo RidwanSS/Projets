@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	GR Shop
+{% endblock %}
+
+{% block body %}
+	<br/>
+	<h1>{{ 'produit.titre' |trans }}</h1>
+	<br/>
+	<br/>
+	{% if produits is not empty %}
+		<p style="font-size: 20px; font-family: Montserrat">{{ 'produit.there_is' |trans({'nb' :produits|length}) }}
+			:</p>
+		<br/>
+		<table class="table">
+			<thead>
+				<tr><th>{{ 'produit.image' |trans }}</th>
+					<th>{{ 'produit.nom' |trans }}</th>
+					<th>{{ 'produit.description' |trans }}</th>
+					<th>{{ 'produit.stock' |trans }}</th>
+					<th>{{ 'produit.prix' |trans }}</th>
+                    {% if is_granted('ROLE_ADMIN') %}
+					    <th>{{ 'produit.action' |trans }}</th>
+                    {% endif %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for produit in produits %}
+					<tr>
+						<td>
+							{% if produit.image is not null %}
+								<img src="{{ asset('uploads/' ~ produit.image) }}">
+							{% endif %}
+						</td>
+						<td>
+							<a href="{{ path('produit_show', {'id': produit.id}) }}">
+								{{ produit.nom }}
+							</a>
+						</td>
+						<td>{{ produit.description }}</td>
+						<td>{{ produit.stock }}</td>
+						<td>{{ produit.prix }}€</td>
+                        {% if is_granted('ROLE_ADMIN') %}
+							<td>
+								{{ include('produit/_delete_form.html.twig') }}
+							</td>
+                        {% endif %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p style="font-size: 20px; font-family: Montserrat">{{ 'produit.vide' |trans }}</p>
+	{% endif %}
+
+    <br/>
+    <div style="background-color: darkgrey; height: 3px;"></div>
+    <br/>
+
+    {% if app.user is not null %} {#Condition si la personne est ADMIN, elle a le form pour ajouter un article#}
+        {% if is_granted('ROLE_ADMIN') %}
+        <h2 style="display:flex; justify-content:center; text-decoration: underline; font-family: Montserrat">{{ 'produit.add' |trans }}</h2>
+        <br/>
+        <div style="font-family: Montserrat">
+            {{ form(form_produit_new) }}
+        </div>
+        {% endif %}
+    {% endif %}
+
+	{# <a href="{{ path('produit_new') }}">{{ 'produit.creation' |trans }}</a> #}
+
+
+{% endblock %}

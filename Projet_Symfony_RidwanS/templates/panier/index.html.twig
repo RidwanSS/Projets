@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+{% block body %}
+
+    <br/>
+	<br/>
+	<h1>Commande</h1>
+	<br/>
+	{% if app.user is not empty %}
+        {% for panier in ancienpanier %}
+            <p style="font-size: 20px; font-family: Montserrat">{{ 'produit.there_is' |trans({'nb' :produits|length}) }}
+                :</p>
+            <br/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Identifiant de la commande </th>
+                        {# <th>Montant de la commande</th> #}
+                        <th>Date de la commande</th>
+                    </tr>
+                </thead>
+                <tbody>
+					{# {% set total_commande = 0 %}  #}
+                    {% for cont in anciencontenu %}
+						{# {% set total_commande = total_commande + (cont.contenu.produit.prix * cont.contenu.qte) %} #}
+                        <tr>
+                            {# <td>
+                                <a href="{{ path('produit_show', {'id': produit.id}) }}">
+                                    {{ produit.nom }}
+                                </a>
+                            </td> #}
+                            <td>{{ cont.contenu.panier.id }}</td>
+                            {# <td>{{ total_commande }}</td> #}
+                            {# <td>{{ cont.date_achat }}</td> #}
+                        </tr>
+                    {% endfor %}
+                </tbody> #}
+            </table>
+        {% endfor %}
+    {% else %}  
+        <p>Il n'y a aucune commande<p/>
+    {% endif %}
+
+{% endblock %}

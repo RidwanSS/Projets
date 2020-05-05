@@ -1,0 +1,114 @@
+produit:
+  titre: 'Products list'
+  add: 'Add a product'
+  nom: 'Name'
+  description: 'Product Description'
+  quantite: 'Quantity (in stock)'
+  prix: 'Price'
+  voir: 'Show'
+  edit: 'Edit'
+  modif_produit: 'Edit Product'
+  retour_liste: 'Back to list'
+  retour: 'Back'
+  categorie: 'Category'
+  action: 'Action'
+  stock: 'Quantity of products'
+  supp: 'Delete'
+  save: 'Save'
+  image: 'Picture'
+  etat: "Situation"
+  add02: 'Added'
+  a: 'at'
+  name: 'Product'
+  quantite02: 'Quantity'
+  delete: 'Delete the line'
+  vide: 'There is no product on the list'
+  creation: "Create a new product"
+  there_is: "There is/are nb product/products"
+
+file:
+  error: "The file can't be upload"
+
+Nom: "Name"
+Description : "Description"
+Qte: "Quantity"
+Prix: "Price"
+Categorie: "Category"
+Photo: "Picture"
+Sauvegarder: "Save"
+Qte01: 'Quantity'
+Produit: 'Product'
+Save: 'Add in your shopping bag'
+Plain password: 'Plain password'
+Agree terms: 'Agree terms'
+Prenom: "First name"
+
+pan:
+  rien: "There is nothing in your shopping bag"
+  panier: 'Shopping bag'
+  montant: 'Amount of your shopping bag'
+  there_is: "There is/are nb product(s) in your shopping bag"
+  add: 'Add in your shopping bag'
+  nom: 'Product Name'
+  qte: 'Quantity'
+  prix: 'Price'
+  montant2: 'Amount'
+  action: 'Action'
+  empty: 'Your shopping bag is empty'
+  total: 'Total price'
+  texte1: 'The total price is '
+  acheter: 'Buy all'
+
+compte:
+  id: "Enter your ID"
+  connecte: 'You are log as'
+  mdp: 'Plain password'
+  login: 'Log in'
+  signin: 'Sign in'
+  veuillez: ' '
+  conditionadd: "to add in your shopping bag"
+  or: 'or'
+  profil: 'Profile'
+  logout: 'Log out'
+  mine: 'My account'
+  list: 'User list'
+  accueil: 'Home'
+  already: 'You are already log as '
+
+flash:
+  addproduct: "Product add !"
+  deleteproduct: "Product delete !"
+  impossibleproduct: "Unable to delete product"
+  addpanier: 'Product add in shopping bag !'
+  unknownprod: "Unknown product !"
+  impossiblerole: "Unable to edit role"
+  edituser: "Role changed to ['ROLE_USER'] !"
+  editadmin: "Role changed to ['ROLE_ADMIN'] !"
+  editsuperadmin: "Role changed to ['ROLE_SUPER_ADMIN'] !"
+  supppanier: "Product removed from your shopping bag !"
+  unknownpan: "Unknown shopping bag !"
+  buypan: "Shopping bag bought !"
+  create: 'Account created ! Welcome on GR Shop'
+  edit: 'Account changed !'
+  deleteaccount: 'Account deleted!'
+
+admin:
+  bienvenue: 'Welcome'
+  texte1: 'You can go to :'
+  list: 'Users list'
+  texte2: 'You are'
+  texte21: 'and your roles are : '
+  nom: 'First name'
+  prenom: 'Last name'
+  email: 'Email'
+  role: 'Role(s)'
+  change: 'Change role'
+
+
+user:
+  compte: 'My account'
+  firstname: 'Firstname'
+  lastname: 'Name'
+  edit: 'Edit'
+  edit02: 'Account modification'
+  delete: 'Delete account'

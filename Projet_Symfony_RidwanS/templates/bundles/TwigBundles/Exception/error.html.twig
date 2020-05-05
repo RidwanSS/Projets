@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+{# Contenu des pages d'erreurs non recensées comme 403, 404 ou 500  #}
+{% block body %}
+	<h1>Aïe aïe aïe</h1>
+	<p>Un problème est survenu, merci de raffraîchir votre page ou de réessayer ultérieurement.</p>
+	<p><a href="{{ path('produit') }}">Retour à l'accueil</a></p>
+{% endblock %}

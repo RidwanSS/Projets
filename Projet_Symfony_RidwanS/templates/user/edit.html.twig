@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GR Shop{% endblock %}
+
+{% block body %}
+    <br/>
+	<h1>
+		{{'user.edit02'|trans}}
+	</h1>
+	<br/>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <br/>
+
+    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}
